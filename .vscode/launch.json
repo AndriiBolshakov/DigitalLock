@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ESP32-S3 Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/${command:espIdf.getProjectName}.elf",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "${command:espIdf.getToolchainPath}/bin/xtensa-esp32s3-elf-gdb.exe",
+            "setupCommands": [
+                {
+                    "text": "target remote :3333"
+                },
+                {
+                    "text": "monitor reset halt"
+                },
+                {
+                    "text": "flushregs"
+                }
+            ]
+        }
+    ]
+}
